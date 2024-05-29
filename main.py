@@ -1,6 +1,23 @@
 import json
 import os
 
+
+def verifica_tarefa(tarefa, tarefas):
+    tarefa = tarefa.strip()
+    if not tarefa:
+        print("Campo vazio")
+        return False
+    if tarefa in tarefas:
+        print("Esta tarefa já existe")
+        return False
+    return tarefa
+
+def adicionar(tarefa,tarefas):
+    print()
+    tarefa_verificada = verifica_tarefa(tarefa,tarefas)
+    if tarefa_verificada:
+        tarefas.append(tarefa_verificada)
+
 def verifica_lista(lista,mensagem):
     if not lista:
         print(mensagem)
@@ -65,4 +82,4 @@ while True:
     if comando:
         comando()
     else:
-        tarefas.append(entrada)
+        adicionar(entrada, tarefas)
