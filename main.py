@@ -20,13 +20,17 @@ def listar(tarefas):
 def mover_tarefa(lista_1, lista_2, mensagem):
     if not verifica_lista(lista_1,mensagem):
         return
-    lista_2.append(lista_1.pop())
+    tarefa = lista_1.pop()
+    lista_2.append(tarefa)
 
 def desfazer(tarefas, lixeira):
     mover_tarefa(tarefas,lixeira, "Não há nada para desfazer")
 
 def refazer(lixeira,tarefas):
     mover_tarefa(lixeira,tarefas, "Não há nada para refazer")
+
+def limpar_lixeira(lixeira):
+    lixeira.clear()
 
 def salvar(dados, tarefas, lixeira):
     dados['lista_tarefas'] = tarefas
@@ -47,12 +51,13 @@ comandos = {
     'listar': lambda: listar(tarefas),
     'desfazer': lambda: desfazer(tarefas, lixeira),
     'refazer': lambda: refazer(lixeira, tarefas),
+    'limpar':lambda: limpar_lixeira(lixeira),
     'salvar': lambda: salvar(dados, tarefas, lixeira),
     'clear': limpar_tela
 }
 
 while True:
-    print('Comandos: listar, desfazer, refazer, salvar')
+    print('Comandos: listar, desfazer, refazer, limpar,salvar')
     entrada = input('Digite uma tarefa ou comando: ')
 
     comando = comandos.get(entrada)
