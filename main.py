@@ -2,8 +2,7 @@ from lista_tarefas_functions import *
 
 def main():
 
-    with open('dados\\data_base.json', 'r', encoding='utf8') as arquivo:
-        dados = json.load(arquivo)
+    dados = carregar_dados()
 
     tarefas = dados['lista_tarefas']
     lixeira = dados['lixeira']

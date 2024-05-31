@@ -50,6 +50,11 @@ def refazer(lixeira,tarefas):
 def limpar_lixeira(lixeira):
     lixeira.clear()
 
+def carregar_dados():
+    with open('dados\\data_base.json', 'r', encoding='utf8') as arquivo:
+        dados = json.load(arquivo)
+        return dados
+
 def salvar(dados, tarefas, lixeira):
     dados['lista_tarefas'] = tarefas
     dados['lixeira'] = lixeira
