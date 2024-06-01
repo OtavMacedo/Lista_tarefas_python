@@ -59,7 +59,7 @@ def salvar(dados, tarefas, lixeira):
     dados['lista_tarefas'] = tarefas
     dados['lixeira'] = lixeira
     with open('dados\\data_base.json', 'w', encoding='utf8') as arquivo:
-        json.dump(dados, arquivo, ensure_ascii=False)
+        json.dump(dados, arquivo, ensure_ascii=False, indent=4)
 
 def limpar_tela():
     os.system('cls' if os.name == 'nt' else 'clear')
